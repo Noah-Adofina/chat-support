@@ -48,7 +48,7 @@ export default function Home() {
       justifyContent={'center'}
       alignItems={'center'}
     >
-      <Stack direction={'column'} width={'500px'} height={'700px'} border={'1px solid #000'} p={2} spacing={3}>
+      <Stack direction={'column'} width={'500px'} height={'700px'} border={'1px solid #8da4c9'} p={3} spacing={3}>
         <Stack direction={'column'} spacing={2} flexGrow={1} overflow={'auto'} maxHeight='100%'>
           {messages.map((message, index) => (
               <Box 
@@ -59,7 +59,7 @@ export default function Home() {
                 <Box
                   bgcolor={message.role === 'assistant' ? 'primary.main' : 'secondary.main'}
                   color='white'
-                  borderRadius={16}
+                  borderRadius={message.role === 'assistant' ? '55px 55px 55px 4px' : '55px 55px 4px 55px'}
                   p={3}
                 >
                   {message.content}
@@ -75,7 +75,7 @@ export default function Home() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           ></TextField>
-          <Button varient='contained' onClick={message === '' ? console.log('') : sendMessage}>
+          <Button variant='contained' onClick={message === '' ? console.log('') : sendMessage}>
             Send
           </Button>
         </Stack>
